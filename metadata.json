@@ -1,0 +1,5 @@
+{
+  "name": "AI Project Launcher",
+  "description": "A sophisticated, AI-powered project planning application that transforms high-level goals into detailed, structured project plans with epics, user stories, and tasks, using the Gemini API.",
+  "requestFramePermissions": []
+}
