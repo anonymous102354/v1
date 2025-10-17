@@ -18,28 +18,32 @@ export const ProjectPlanner: React.FC<ProjectPlannerProps> = ({ onGenerate, isLo
   };
 
   return (
-    <div className="max-w-3xl mx-auto bg-gray-800/50 backdrop-blur-sm p-6 md:p-8 rounded-2xl shadow-2xl border border-gray-700">
+    <div className="max-w-4xl mx-auto">
       <form onSubmit={handleSubmit}>
-        <label htmlFor="project-goal" className="block text-lg font-medium text-gray-300 mb-2">
-          Enter Your Project Goal
-        </label>
-        <textarea
-          id="project-goal"
-          rows={4}
-          value={goal}
-          onChange={(e) => setGoal(e.target.value)}
-          className="w-full bg-gray-900/70 border border-gray-600 rounded-lg p-4 text-gray-200 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-200 placeholder-gray-500 resize-none"
-          placeholder="e.g., 'Build a social media app for pet owners' or 'Create an e-commerce platform for handmade crafts'"
-          disabled={isLoading}
-        />
-        <button
-          type="submit"
-          disabled={isLoading || !goal.trim()}
-          className="mt-6 w-full flex items-center justify-center gap-x-3 bg-indigo-600 hover:bg-indigo-700 disabled:bg-indigo-900/50 disabled:text-gray-400 disabled:cursor-not-allowed text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 disabled:scale-100"
-        >
-          <SparklesIcon className="w-5 h-5" />
-          {isLoading ? 'Generating Plan...' : 'Generate Project Plan'}
-        </button>
+        <div className="relative">
+          <textarea
+            id="project-goal"
+            rows={1}
+            value={goal}
+            onChange={(e) => setGoal(e.target.value)}
+            onKeyDown={(e) => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    handleSubmit(e);
+                }
+            }}
+            className="w-full bg-zinc-800 border border-zinc-700 rounded-xl p-4 pr-36 text-gray-200 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-200 placeholder-gray-500 resize-none leading-tight"
+            placeholder="Ask a follow-up or enter a new project goal..."
+            disabled={isLoading}
+          />
+          <button
+            type="submit"
+            disabled={isLoading || !goal.trim()}
+            className="absolute right-2.5 top-1/2 -translate-y-1/2 flex items-center justify-center gap-x-2 bg-indigo-600 hover:bg-indigo-700 disabled:bg-indigo-900/50 disabled:text-gray-400 disabled:cursor-not-allowed text-white font-semibold py-2 px-4 rounded-lg transition-all duration-300"
+          >
+            <SparklesIcon className="w-5 h-5" />
+            {isLoading ? 'Generating...' : 'Generate'}
+          </button>
+        </div>
       </form>
     </div>
   );

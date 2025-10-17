@@ -1,5 +1,5 @@
 {
-  "name": "AI Project Launcher",
-  "description": "A sophisticated, AI-powered project planning application that transforms high-level goals into detailed, structured project plans with epics, user stories, and tasks, using the Gemini API.",
+  "name": "AI Launcher Interface",
+  "description": "A web-based simulation of a modern mobile launcher UI, featuring an AI-powered project planner that transforms high-level goals into detailed, structured project plans.",
   "requestFramePermissions": []
 }
